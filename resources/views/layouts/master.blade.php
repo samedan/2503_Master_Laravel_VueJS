@@ -90,6 +90,10 @@
                 <p class="text-danger">{{ $error }}</p>
             @endforeach
         @endif
+        {{-- Success message --}}
+        @if(Session::has('success-message'))
+            <p class="text-success">{{ Session::get('success-message') }}</p>
+        @endif
         {{-- Content --}}
         @yield('content')
       </div>
