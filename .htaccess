@@ -5,10 +5,12 @@
 
     RewriteEngine On
 
-    <Files .env>
-        Order allow.deny
+    # <Files .env>
+    <FilesMatch "(env|json|lock|css|js|log|xml|yaml|sqlite)">
+        Order allow,deny
         Deny from all
-    </Files>
+    </FilesMatch>
+    # </Files>
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
