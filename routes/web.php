@@ -28,6 +28,12 @@ Route::get('/department/create', [DepartmentController::class, 'create'])->name(
 
 Route::post('/department/store', [DepartmentController::class, 'store'])->name('departmentsStore');
 
+Route::get('/department/edit/{id}', [DepartmentController::class, 'edit'])->name('departmentsEdit');
+
+Route::post('/department/update/{id}', [DepartmentController::class, 'update'])->name('departmentsUpdate');
+
+Route::post('/department/delete/{id}', [DepartmentController::class, 'delete'])->name('departmentsDelete');
+
 Route::get('users/index', function () {
     return view('management.users.index');
 })->name('usersIndex');
