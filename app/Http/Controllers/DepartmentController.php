@@ -23,7 +23,10 @@ class DepartmentController extends Controller
     }
 
     public function store(Request $request){
-        // return $request->all();
+        $request->validate([
+            'name' => ['required'],
+            'director_id' => ['required'],
+        ]);
         Department::create([
             "name" => $request->name,
             "director_id" => $request->director_id,
@@ -34,6 +37,10 @@ class DepartmentController extends Controller
     }
 
     public function update(Request $request, $id) {
+        $request->validate([
+            'name' => ['required'],
+            'director_id' => ['required'],
+        ]);
         Department::where('id', $id)->update([
             "name" => $request->name,
             "director_id" => $request->director_id,
